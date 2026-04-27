@@ -6,14 +6,17 @@
     {
         private State _currentState;
 
-        private void Update()
+        private void Tick()
         {
-            _currentState?.Update(Time.deltaTime);
+            _currentState?.Tick(Time.deltaTime);
         }
 
         public void SwitchState(State newState)
         {
-            Debug.Log($"{gameObject.name} from {_currentState?.ToString()} to {newState?.ToString()}");
+            string oldName = _currentState != null ? _currentState.GetType().Name : "None";
+            string newName = newState != null ? newState.GetType().Name : "None";
+
+            Debug.Log($"[FSM] {gameObject.name}: {oldName} —> {newName}");
 
             _currentState?.Exit();
             _currentState = newState;
