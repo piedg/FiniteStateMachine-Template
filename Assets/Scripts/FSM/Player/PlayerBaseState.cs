@@ -14,13 +14,13 @@ namespace FSM.Player
         protected void Jump()
         {
             if (stateMachine.CustomPhysics.IsGrounded)
-                stateMachine.SwitchState(new PlayerJumpState(stateMachine));
+                stateMachine.SwitchState(stateMachine.JumpState);
         }
 
         protected void Fall()
         {
             if (stateMachine.CustomPhysics.GetVelocity.y < 0) 
-                stateMachine.SwitchState(new PlayerFallingState(stateMachine));
+                stateMachine.SwitchState(stateMachine.FallingState);
         }
     }
 }

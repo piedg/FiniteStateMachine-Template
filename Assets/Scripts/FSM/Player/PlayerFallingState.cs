@@ -18,7 +18,7 @@ namespace FSM.Player
         {
             if (stateMachine.CustomPhysics.IsGrounded)
             {
-                stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+                stateMachine.SwitchState(stateMachine.LocomotionState);
             }
         }
 
