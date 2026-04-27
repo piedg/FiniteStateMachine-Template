@@ -1,5 +1,4 @@
 using Inputs;
-using UnityEngine;
 
 namespace FSM.Player
 {
@@ -7,7 +6,7 @@ namespace FSM.Player
     {
         public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
-            
+            StateName = "Locomotion";
         }
 
         public override void Enter()
@@ -18,6 +17,8 @@ namespace FSM.Player
         public override void Tick(float deltaTime)
         {
             stateMachine.Movement.SetCurrentDirection(stateMachine.InputManager.GetMovementVectorNormalized().x);
+            
+            Fall();
         }
 
         public override void Exit()

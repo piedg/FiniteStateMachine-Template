@@ -6,6 +6,7 @@ namespace FSM.Player
     {
         public PlayerJumpState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
+            StateName = "Jump";
         }
 
         public override void Enter()
@@ -15,9 +16,7 @@ namespace FSM.Player
 
         public override void Tick(float deltaTime)
         {
-            Debug.Log("Jumping...");
-            if (stateMachine.CustomPhysics.GetVelocity.y < 0) 
-                stateMachine.SwitchState(new PlayerFallingState(stateMachine));
+            Fall();
         }
 
         public override void Exit()

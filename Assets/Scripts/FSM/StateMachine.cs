@@ -1,9 +1,12 @@
-﻿namespace FSM
+﻿using TMPro;
+
+namespace FSM
 {
     using UnityEngine;
 
     public class StateMachine : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI currentStateText;
         private State _currentState;
 
         private void Update()
@@ -17,7 +20,9 @@
             string newName = newState != null ? newState.GetType().Name : "None";
 
             Debug.Log($"[FSM] {gameObject.name}: {oldName} —> {newName}");
-
+            
+            currentStateText.text = newState?.StateName;
+            
             _currentState?.Exit();
             _currentState = newState;
             _currentState?.Enter();

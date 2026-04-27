@@ -70,5 +70,4 @@ public class CustomPhysics : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(groundCheckPoint.position, groundCheckSize);
     }
-    
 }

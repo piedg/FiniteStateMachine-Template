@@ -6,6 +6,7 @@ namespace FSM.Player
     {
         public PlayerFallingState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
+            StateName = "Falling";
         }
 
         public override void Enter()
@@ -15,7 +16,6 @@ namespace FSM.Player
 
         public override void Tick(float deltaTime)
         {
-            Debug.Log("Falling...");
             if (stateMachine.CustomPhysics.IsGrounded)
             {
                 stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
