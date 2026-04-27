@@ -6,7 +6,7 @@
     {
         private State _currentState;
 
-        private void Tick()
+        private void Update()
         {
             _currentState?.Tick(Time.deltaTime);
         }
